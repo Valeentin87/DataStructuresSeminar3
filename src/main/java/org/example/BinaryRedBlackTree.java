@@ -1,7 +1,6 @@
 package org.example;
 import java.util.Scanner;
 
-public class Main {
 
 
 
@@ -83,23 +82,23 @@ public class Main {
 // случай 1.
             // когда правый дочерний элемент красный, а левый дочерний элемент черный или не существует.
             if (isRed(myNode.right) && !isRed(myNode.left)) {
-            // Повернуть узел  влево
+                // Повернуть узел  влево
                 myNode = rotateLeft(myNode);
 
-            // Поменять местами цвета дочернего узла всегда должен быть красным
+                // Поменять местами цвета дочернего узла всегда должен быть красным
                 swapColors(myNode, myNode.left);
             }
 // случай 2
             // когда левый ребенок, а также левый внук выделены красным цветом
             if (isRed(myNode.left) && isRed(myNode.left.left)) {
-            // Повернуть узел в право
+                // Повернуть узел в право
                 myNode = rotateRight(myNode);
                 swapColors(myNode, myNode.right);
             }
 // случай 3
             // когда и левый, и правый дочерние элементы окрашены в красный цвет.
             if (isRed(myNode.left) && isRed(myNode.right)) {
-            // Инвертировать цвет узла это левый и правый дети.
+                // Инвертировать цвет узла это левый и правый дети.
                 myNode.color = !myNode.color;
                 // Изменить цвет на черный.
                 myNode.left.color = false;
@@ -108,19 +107,35 @@ public class Main {
 
             return myNode;
         }
+
         // Обход по порядку
         void inorder(Node node) {
-            if (node != null)
-            {
+            if (node != null) {
                 inorder(node.left);
                 char c = '●';
                 if (node.color == false)
                     c = '◯';
-                System.out.print(node.data + ""+c+" ");
+                System.out.print(node.data + "" + c + " ");
                 inorder(node.right);
             }
         }
-            public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        public static void main(String[] args) {
+
+            BinaryRedBlackTree node = new BinaryRedBlackTree();
+            Scanner scan = new Scanner(System.in);
+
+            char ch;
+            do {
+                System.out.println("Введите целое число");
+
+                int num = scan.nextInt();
+                root = node.insert(root, num);
+
+                node.inorder(root);
+                System.out.println("\nВы хотите продолжить? (введите y или n)");
+                ch = scan.next().charAt(0);
+            } while (ch == 'Y' || ch == 'y');
+        }
     }
-}
+
