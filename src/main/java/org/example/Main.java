@@ -57,6 +57,13 @@ public class Main {
             }
             return (myNode.color == true);
         }
+        // Функция для изменения цвета двух узлы.
+        void swapColors(Node node1, Node node2) {
+            boolean temp = node1.color;
+            node1.color = node2.color;
+            node2.color = temp;
+        }
+
         public static void main(String[] args) {
         System.out.println("Hello world!");
     }
