@@ -89,6 +89,14 @@ public class Main {
             // Поменять местами цвета дочернего узла всегда должен быть красным
                 swapColors(myNode, myNode.left);
             }
+// случай 2
+            // когда левый ребенок, а также левый внук выделены красным цветом
+            if (isRed(myNode.left) && isRed(myNode.left.left)) {
+            // Повернуть узел в право
+                myNode = rotateRight(myNode);
+                swapColors(myNode, myNode.right);
+            }
+
 
             public static void main(String[] args) {
         System.out.println("Hello world!");
