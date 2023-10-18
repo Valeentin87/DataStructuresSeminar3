@@ -108,7 +108,18 @@ public class Main {
 
             return myNode;
         }
-
+        // Обход по порядку
+        void inorder(Node node) {
+            if (node != null)
+            {
+                inorder(node.left);
+                char c = '●';
+                if (node.color == false)
+                    c = '◯';
+                System.out.print(node.data + ""+c+" ");
+                inorder(node.right);
+            }
+        }
             public static void main(String[] args) {
         System.out.println("Hello world!");
     }
