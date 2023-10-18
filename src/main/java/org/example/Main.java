@@ -96,7 +96,18 @@ public class Main {
                 myNode = rotateRight(myNode);
                 swapColors(myNode, myNode.right);
             }
+// случай 3
+            // когда и левый, и правый дочерние элементы окрашены в красный цвет.
+            if (isRed(myNode.left) && isRed(myNode.right)) {
+            // Инвертировать цвет узла это левый и правый дети.
+                myNode.color = !myNode.color;
+                // Изменить цвет на черный.
+                myNode.left.color = false;
+                myNode.right.color = false;
+            }
 
+            return myNode;
+        }
 
             public static void main(String[] args) {
         System.out.println("Hello world!");
