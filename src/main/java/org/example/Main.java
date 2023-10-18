@@ -50,6 +50,7 @@ public class Main {
 
             return child;
         }
+
         // Функция для проверки того, является ли узел красного цвета или нет.
         boolean isRed(Node myNode) {
             if (myNode == null) {
@@ -57,12 +58,14 @@ public class Main {
             }
             return (myNode.color == true);
         }
+
         // Функция для изменения цвета двух узлы.
         void swapColors(Node node1, Node node2) {
             boolean temp = node1.color;
             node1.color = node2.color;
             node2.color = temp;
         }
+
         // вставка в левостороннее Красно-черное дерево.
         Node insert(Node myNode, int data) {
 // Обычный код вставки для любого двоичного файла
@@ -76,6 +79,15 @@ public class Main {
                 myNode.right = insert(myNode.right, data);
             } else {
                 return myNode;
+            }
+// случай 1.
+            // когда правый дочерний элемент красный, а левый дочерний элемент черный или не существует.
+            if (isRed(myNode.right) && !isRed(myNode.left)) {
+            // Повернуть узел  влево
+                myNode = rotateLeft(myNode);
+
+            // Поменять местами цвета дочернего узла всегда должен быть красным
+                swapColors(myNode, myNode.left);
             }
 
             public static void main(String[] args) {
