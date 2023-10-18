@@ -50,7 +50,13 @@ public class Main {
 
             return child;
         }
-
+        // Функция для проверки того, является ли узел красного цвета или нет.
+        boolean isRed(Node myNode) {
+            if (myNode == null) {
+                return false;
+            }
+            return (myNode.color == true);
+        }
         public static void main(String[] args) {
         System.out.println("Hello world!");
     }
