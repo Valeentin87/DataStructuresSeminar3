@@ -22,6 +22,22 @@ public class Main {
             color = true;
         }
     }
+
+    public class BinaryRedBlackTree {
+
+        private static Node root = null;
+
+        // Функция для поворота узла против часовой стрелки.
+        Node rotateLeft(Node myNode) {
+            System.out.printf("поворот влево!!\n");
+            Node child = myNode.right;
+            Node childLeft = child.left;
+
+            child.left = myNode;
+            myNode.right = childLeft;
+
+            return child;
+        }
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
