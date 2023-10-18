@@ -38,7 +38,20 @@ public class Main {
 
             return child;
         }
-    public static void main(String[] args) {
+
+        // Функция для поворота узла по часовой стрелке.
+        Node rotateRight(Node myNode) {
+            System.out.printf("вращение вправо\n");
+            Node child = myNode.left;
+            Node childRight = child.right;
+
+            child.right = myNode;
+            myNode.left = childRight;
+
+            return child;
+        }
+
+        public static void main(String[] args) {
         System.out.println("Hello world!");
     }
 }
