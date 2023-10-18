@@ -63,8 +63,22 @@ public class Main {
             node1.color = node2.color;
             node2.color = temp;
         }
+        // вставка в левостороннее Красно-черное дерево.
+        Node insert(Node myNode, int data) {
+// Обычный код вставки для любого двоичного файла
+            if (myNode == null) {
+                return new Node(data);
+            }
 
-        public static void main(String[] args) {
+            if (data < myNode.data) {
+                myNode.left = insert(myNode.left, data);
+            } else if (data > myNode.data) {
+                myNode.right = insert(myNode.right, data);
+            } else {
+                return myNode;
+            }
+
+            public static void main(String[] args) {
         System.out.println("Hello world!");
     }
 }
